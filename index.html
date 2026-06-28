@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Negotiators On Demand — Dan Cruz</title>
+<meta name="description" content="Negotiation training, coaching, and scripts from Dan Cruz. Former Marine. Chicago real estate. FBI-style negotiation for real life.">
+<style>
+/* ── reset ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif;background:#0a0a0f;color:#e8e6e3;line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* ── tokens ── */
+:root{
+  --gold:#c9a84c;
+  --gold-light:#e8d08a;
+  --navy:#0f1423;
+  --card:#141926;
+  --text:#e8e6e3;
+  --muted:#8a8a8a;
+  --radius:12px;
+  --max-w:960px;
+}
+
+/* ── header ── */
+header{background:var(--navy);border-bottom:1px solid rgba(201,168,76,.2);padding:1.25rem 1.5rem;position:sticky;top:0;z-index:10;backdrop-filter:blur(12px);background:rgba(15,20,35,.92)}
+.header-inner{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;color:var(--gold)}
+.logo span{color:var(--text)}
+nav{display:flex;gap:1.5rem;align-items:center}
+nav a{color:var(--muted);text-decoration:none;font-size:.875rem;transition:color .2s}
+nav a:hover{color:var(--gold)}
+nav a.cta{background:var(--gold);color:#0a0a0f;padding:.5rem 1.25rem;border-radius:6px;font-weight:600;font-size:.8rem}
+
+/* ── hero ── */
+.hero{max-width:var(--max-w);margin:0 auto;padding:5rem 1.5rem 4rem;text-align:center}
+.hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:1rem}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p{font-size:1.1rem;color:var(--muted);max-width:600px;margin:0 auto 2.5rem}
+.hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.hero-cta a{padding:.75rem 2rem;border-radius:8px;text-decoration:none;font-weight:600;font-size:.9rem;transition:all .2s}
+.hero-cta .primary{background:var(--gold);color:#0a0a0f}
+.hero-cta .primary:hover{background:var(--gold-light);transform:translateY(-2px)}
+.hero-cta .secondary{border:1px solid var(--gold);color:var(--gold)}
+.hero-cta .secondary:hover{background:rgba(201,168,76,.1);transform:translateY(-2px)}
+
+/* ── sections ── */
+section{padding:4rem 1.5rem}
+section:nth-child(odd){background:var(--card)}
+.section-inner{max-width:var(--max-w);margin:0 auto}
+.section-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gold);margin-bottom:.5rem;font-weight:600}
+h2{font-size:clamp(1.5rem,3vw,2.25rem);font-weight:700;margin-bottom:1rem;letter-spacing:-.02em}
+h2+p{color:var(--muted);margin-bottom:2.5rem;max-width:640px}
+
+/* ── products grid ── */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.card{background:#0a0a0f;border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:2rem;transition:border .2s,transform .2s}
+.card:hover{border-color:rgba(201,168,76,.3);transform:translateY(-3px)}
+.card h3{font-size:1.15rem;margin-bottom:.5rem}
+.card .price{color:var(--gold);font-weight:700;font-size:1.1rem;margin-bottom:.5rem}
+.card p{color:var(--muted);font-size:.875rem;margin-bottom:1.25rem;line-height:1.5}
+.card a{display:inline-block;color:var(--gold);text-decoration:none;font-weight:600;font-size:.85rem;border-bottom:1px solid transparent;transition:border .2s}
+.card a:hover{border-bottom-color:var(--gold)}
+
+/* ── coaching ── */
+.coaching-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+@media(max-width:640px){.coaching-grid{grid-template-columns:1fr}}
+.coach-card{background:rgba(201,168,76,.04);border:1px solid rgba(201,168,76,.15);border-radius:var(--radius);padding:2rem;text-align:center}
+.coach-card h3{font-size:1.5rem;margin-bottom:.25rem}
+.coach-card .price{color:var(--gold);font-size:2rem;font-weight:800}
+.coach-card .unit{color:var(--muted);font-size:.85rem;display:block;margin-bottom:1.25rem}
+.coach-card p{color:var(--muted);font-size:.875rem;margin-bottom:1.5rem;line-height:1.5}
+.coach-card a{display:inline-block;background:var(--gold);color:#0a0a0f;padding:.65rem 1.75rem;border-radius:6px;text-decoration:none;font-weight:600;font-size:.85rem;transition:background .2s}
+.coach-card a:hover{background:var(--gold-light)}
+
+/* ── about ── */
+.about-wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+@media(max-width:640px){.about-wrap{grid-template-columns:1fr}}
+.about-wrap p{color:var(--muted);margin-bottom:1rem;font-size:.95rem}
+.tag{display:inline-block;background:rgba(201,168,76,.12);color:var(--gold);font-size:.7rem;padding:.25rem .75rem;border-radius:4px;font-weight:600;margin-right:.5rem;margin-bottom:.5rem}
+
+/* ── footer ── */
+footer{text-align:center;padding:2rem 1.5rem;color:var(--muted);font-size:.8rem;border-top:1px solid rgba(255,255,255,.04)}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<!-- header -->
+<header>
+<div class="header-inner">
+  <div class="logo">negotiators<span>on</span>demand<span>.com</span></div>
+  <nav>
+    <a href="#products">Products</a>
+    <a href="#coaching">Coaching</a>
+    <a href="#about">About</a>
+    <a href="#coaching" class="cta">Book a Session</a>
+  </nav>
+</div>
+</header>
+
+<!-- hero -->
+<section class="hero">
+<h1>Negotiation <em>for real life.</em></h1>
+<p>FBI-style tactics. Real estate deal-making. Marine Corps discipline. Dan Cruz turns negotiation from anxiety into a game you win.</p>
+<div class="hero-cta">
+  <a href="#coaching" class="primary">Book Coaching →</a>
+  <a href="#products" class="secondary">Browse Products</a>
+</div>
+</section>
+
+<!-- products -->
+<section id="products">
+<div class="section-inner">
+<div class="section-label">Products</div>
+<h2>Your negotiation toolkit</h2>
+<p>Scripts, frameworks, and systems built from real deal experience — not theory.</p>
+<div class="grid">
+  <div class="card">
+    <h3>Real Estate Negotiation Scripts</h3>
+    <div class="price">$47</div>
+    <p>Done-for-you scripts for every deal stage: objection handling, price pushback, landlord negotiations, and closing. Used by agents closing 5+ deals a month.</p>
+    <a href="https://dancruzpro.gumroad.com/l/fxgdpc" target="_blank">Buy on Gumroad →</a>
+  </div>
+  <div class="card">
+    <h3>NOD Academy</h3>
+    <div class="price">Book · Amazon KDP</div>
+    <p>The complete negotiation field guide. From FBI hostage negotiation principles to real estate closing tables — a system, not a script collection.</p>
+    <a href="https://amazon.com" target="_blank">Order on Amazon →</a>
+  </div>
+  <div class="card">
+    <h3>Art of Brief</h3>
+    <div class="price">$27</div>
+    <p>For veterans transitioning to civilian negotiation. Briefing skills as combat power — the Art of the Brief methodology condensed into one field manual.</p>
+    <a href="#">Coming Soon</a>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- coaching -->
+<section id="coaching">
+<div class="section-inner">
+<div class="section-label">Coaching</div>
+<h2>One-on-one with Dan</h2>
+<p>90-minute deep dives on your actual deals. Not theory — your next conversation.</p>
+<div class="coaching-grid">
+  <div class="coach-card">
+    <h3>Single Session</h3>
+    <div class="price">$250</div>
+    <span class="unit">per 90-minute session</span>
+    <p>Role-play your next negotiation. Walk in prepared, walk out confident. Includes take-home script tailored to your deal.</p>
+    <a href="mailto:negotiatorsondemand@gmail.com">Book Now →</a>
+  </div>
+  <div class="coach-card">
+    <h3>Veterans Rate</h3>
+    <div class="price">$150</div>
+    <span class="unit">per 90-minute session</span>
+    <p>For active duty, veterans, and military spouses. Same depth, same results. Dan's a Marine — he means it.</p>
+    <a href="mailto:negotiatorsondemand@gmail.com">Book Now →</a>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- about -->
+<section id="about">
+<div class="section-inner">
+<div class="section-label">About</div>
+<h2>Dan Cruz</h2>
+<div class="about-wrap">
+  <div>
+    <p>5 years in the United States Marine Corps (weapons). BA in Media, Communications, and Theater. 1 semester shy of a graduate degree. Chicago real estate agent. Negotiation trainer.</p>
+    <p>Dan has closed hundreds of real estate deals, trained agents across the Midwest, and built negotiation systems that turn anxiety into leverage. His approach blends FBI hostage negotiation principles with real-world real estate — not theory, but what works when the other side says no.</p>
+    <p>On-camera performer who hates one-on-one sales. That contradiction is the point: negotiation is a performance, and Dan teaches you to play your part without being fake.</p>
+    <div style="margin-top:1.5rem">
+      <span class="tag">Marine Corps Veteran</span>
+      <span class="tag">Chicago Real Estate</span>
+      <span class="tag">FBI Negotiation</span>
+      <span class="tag">NOD Academy</span>
+    </div>
+  </div>
+  <div style="background:var(--card);border-radius:var(--radius);padding:2rem;text-align:center;border:1px solid rgba(255,255,255,.06)">
+    <div style="font-size:3rem;margin-bottom:.5rem">🎯</div>
+    <h3 style="margin-bottom:.25rem">The NOD Framework</h3>
+    <p style="color:var(--muted);font-size:.85rem">Neutralize · Observe · Direct. Three moves that win every negotiation.</p>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- footer -->
+<footer>
+  <p>
+    <a href="https://dancruzpro.gumroad.com" target="_blank">Gumroad</a>
+    · <a href="https://github.com/Dan8NOD" target="_blank">GitHub</a>
+    · <a href="mailto:negotiatorsondemand@gmail.com">negotiatorsondemand@gmail.com</a>
+  </p>
+  <p style="margin-top:.5rem">&copy; 2026 Negotiators On Demand</p>
+</footer>
+
+</body>
+</html>
