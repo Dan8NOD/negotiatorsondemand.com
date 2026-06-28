@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin — NOD Products</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#0a0a0f;color:#e8e6e3;line-height:1.6;padding:1.5rem}
+header{max-width:960px;margin:0 auto 2rem;display:flex;align-items:center;gap:1rem}
+h1{color:#c9a84c;font-size:1.25rem}
+.spacer{flex:1}
+.btn{padding:.5rem 1rem;border-radius:6px;border:1px solid #30363d;background:#21262d;color:#e6edf3;font-size:.8rem;cursor:pointer;font-weight:600}
+.btn:hover{background:#30363d}
+.btn-primary{background:#c9a84c;color:#0a0a0f;border-color:#c9a84c}
+.btn-save{background:#3fb950;color:#0a0a0f;border-color:#3fb950;display:none}
+.row{max-width:960px;margin:0 auto;background:#141926;border:1px solid #30363d;border-radius:8px;padding:1rem;margin-bottom:.5rem;display:grid;grid-template-columns:60px 1fr 80px 100px 80px;gap:.75rem;align-items:center}
+.row .name{font-weight:600}
+.row .price{color:#c9a84c;font-weight:700}
+.row .link{color:#58a6ff;font-size:.7rem;text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.status{padding:3px 8px;border-radius:12px;font-size:.7rem;font-weight:600;border:none;cursor:pointer}
+.status.done{background:#3fb95033;color:#3fb950}
+.status.wip{background:#d2992233;color:#d29922}
+.status.todo{background:#1f6feb33;color:#58a6ff}
+.toast{position:fixed;top:1rem;right:1rem;background:#3fb950;color:#0a0a0f;padding:.75rem 1.25rem;border-radius:6px;font-weight:600;display:none}
+.copy-json{max-width:960px;margin:1rem auto}
+.copy-json textarea{width:100%;height:200px;background:#0d1117;border:1px solid #30363d;border-radius:6px;color:#e6edf3;font-family:monospace;font-size:.75rem;padding:.75rem;resize:vertical}
+.hint{max-width:960px;margin:0 auto 1rem;color:#8b949e;font-size:.75rem}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>NOD Products Admin</h1>
+  <span class="spacer"></span>
+  <button class="btn btn-save" id="save-btn" onclick="downloadJson()">💾 Download products.json</button>
+</header>
+
+<p class="hint">Toggle status. Click download when done. Replace <code>products.json</code> in your repo, push, site updates in 30s.</p>
+
+<div id="rows"></div>
+
+<div class="copy-json">
+  <details>
+    <summary style="cursor:pointer;color:#c9a84c;font-weight:600;font-size:.85rem;margin-bottom:.5rem">📋 Show JSON (copy/paste alternative)</summary>
+    <textarea id="json-out" readonly></textarea>
+  </details>
+</div>
+
+<div class="toast" id="toast">Copied to clipboard!</div>
+
+<script>
+let data = null;
+
+async function load() {
+  const r = await fetch('./products.json?_=' + Date.now());
+  data = await r.json();
+  render();
+}
+
+function render() {
+  const wrap = document.getElementById('rows');
+  wrap.innerHTML = '';
+  data.products.forEach((p, i) => {
+    const row = document.createElement('div');
+    row.className = 'row';
+    row.innerHTML = `
+      <span class="name">${i + 1}</span>
+      <div>
+        <div class="name">${p.name}</div>
+        <a class="link" href="${p.link || '#'}" target="_blank">${p.link || '— no link'}</a>
+      </div>
+      <span class="price">$${p.price}${p.recurring ? '/mo' : ''}</span>
+      <select class="status ${p.status}" data-i="${i}" onchange="setStatus(this, ${i})">
+        <option value="done" ${p.status === 'done' ? 'selected' : ''}>✅ done</option>
+        <option value="wip" ${p.status === 'wip' ? 'selected' : ''}>🔧 wip</option>
+        <option value="todo" ${p.status === 'todo' ? 'selected' : ''}>📋 todo</option>
+      </select>
+      <span style="font-size:.7rem;color:#8b949e">${p.slug}</span>`;
+    wrap.appendChild(row);
+  });
+  document.getElementById('save-btn').style.display = 'inline-block';
+  updateJson();
+}
+
+function setStatus(sel, i) {
+  data.products[i].status = sel.value;
+  sel.className = 'status ' + sel.value;
+  updateJson();
+}
+
+function updateJson() {
+  document.getElementById('json-out').value = JSON.stringify(data, null, 2);
+}
+
+function downloadJson() {
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'products.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  toast('Downloaded products.json');
+}
+
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.display = 'block';
+  setTimeout(() => t.style.display = 'none', 2500);
+}
+
+load();
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "products": [
+    { "name": "PDF Cheat Sheet (50 Labels)", "price": 9, "slug": "cheat-sheet", "status": "wip", "desc": "50 labeled phrases that make people open up", "link": "" },
+    { "name": "Negotiation Flash Cards", "price": 19, "slug": "flash-cards", "status": "todo", "desc": "Physical or digital deck of NOD tools", "link": "" },
+    { "name": "Bare Knuckle Negotiation App", "price": 29, "slug": "bare-knuckle", "status": "done", "desc": "NOD-ify app — 23 tools, timed sessions", "link": "https://dan8nod.github.io/NOD-ify/MixMatch-FV3.html" },
+    { "name": "Negotiation Field Manual", "price": 49, "slug": "field-manual", "status": "done", "desc": "Your NOD Academy ebook — 33 chapters", "link": "" },
+    { "name": "RE Scripts Pack", "price": 99, "slug": "re-scripts", "status": "done", "desc": "Real estate negotiation scripts", "link": "" },
+    { "name": "Complete Bundle", "price": 149, "slug": "bundle", "status": "todo", "desc": "All digital products in one package", "link": "" },
+    { "name": "NOD Membership", "price": 199, "slug": "membership", "status": "todo", "desc": "Ongoing group coaching + community", "link": "", "recurring": true },
+    { "name": "Self-Paced Course", "price": 299, "slug": "course", "status": "todo", "desc": "Recorded Saturday sessions + toolkit", "link": "" },
+    { "name": "Advanced Masterclass", "price": 499, "slug": "masterclass", "status": "todo", "desc": "Deep dive: Level 3 tools, storytelling", "link": "" },
+    { "name": "Private Coaching", "price": 997, "slug": "coaching", "status": "wip", "desc": "1-on-1, negotiatorsondemand.com", "link": "https://calendly.com/negotiatorsondemand" },
+    { "name": "Corporate Training", "price": 2500, "slug": "corporate", "status": "todo", "desc": "Half-day or full-day team workshops", "link": "" },
+    { "name": "Business Workshop", "price": 5000, "slug": "workshop", "status": "todo", "desc": "Executive-level negotiation intensive", "link": "" },
+    { "name": "Enterprise Consulting", "price": 10000, "slug": "enterprise", "status": "todo", "desc": "Retained advisory for sales teams", "link": "" }
+  ]
+}

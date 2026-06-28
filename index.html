@@ -111,34 +111,40 @@ footer a:hover{color:var(--gold)}
 </div>
 </section>
 
-<!-- products -->
+<!-- ── products ── -->
 <section id="products">
 <div class="section-inner">
 <div class="section-label">Products</div>
 <h2>Your negotiation toolkit</h2>
 <p>Scripts, frameworks, and systems built from real deal experience — not theory.</p>
-<div class="grid">
-  <div class="card">
-    <h3>Real Estate Negotiation Scripts</h3>
-    <div class="price">$47</div>
-    <p>Done-for-you scripts for every deal stage: objection handling, price pushback, landlord negotiations, and closing. Used by agents closing 5+ deals a month.</p>
-    <a href="https://dancruzpro.gumroad.com/l/fxgdpc" target="_blank">Buy on Gumroad →</a>
-  </div>
-  <div class="card">
-    <h3>NOD Academy</h3>
-    <div class="price">Book · Amazon KDP</div>
-    <p>The complete negotiation field guide. From FBI hostage negotiation principles to real estate closing tables — a system, not a script collection.</p>
-    <a href="https://amazon.com" target="_blank">Order on Amazon →</a>
-  </div>
-  <div class="card">
-    <h3>Art of Brief</h3>
-    <div class="price">$27</div>
-    <p>For veterans transitioning to civilian negotiation. Briefing skills as combat power — the Art of the Brief methodology condensed into one field manual.</p>
-    <a href="#">Coming Soon</a>
-  </div>
-</div>
+<div class="grid" id="product-grid"></div>
 </div>
 </section>
+<script>
+fetch('./products.json').then(r => r.json()).then(data => {
+  const grid = document.getElementById('product-grid');
+  const statusOrder = { done: 0, wip: 1, todo: 2 };
+  const sorted = [...data.products].sort((a, b) => {
+    if (statusOrder[a.status] !== statusOrder[b.status]) return statusOrder[a.status] - statusOrder[b.status];
+    return a.price - b.price;
+  });
+  // ponytail: skip products where status === 'todo' (hide unreleased roadmap noise)
+  const visible = sorted.filter(p => p.status !== 'todo');
+  visible.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    const priceLabel = p.recurring ? `$${p.price}/mo` : `$${p.price}`;
+    card.innerHTML = `
+      <h3>${p.name}</h3>
+      <div class="price">${priceLabel}</div>
+      <p>${p.desc}</p>
+      ${p.link ? `<a href="${p.link}" target="_blank" rel="noopener">${p.link.includes('amazon') ? 'Order on Amazon →' : p.link.includes('gumroad') ? 'Buy on Gumroad →' : p.link.includes('calendly') ? 'Book Now →' : p.link.includes('dan8nod') ? 'Try the App →' : 'Learn More →'}</a>` : '<a href="#coaching" style="color:var(--muted);cursor:default">Coming Soon</a>'}`;
+    grid.appendChild(card);
+  });
+}).catch(e => {
+  document.getElementById('product-grid').innerHTML = '<p style="color:var(--muted);grid-column:1/-1;text-align:center">Loading products…</p>';
+});
+</script>
 
 <!-- coaching -->
 <section id="coaching">
