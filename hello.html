@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Free Negotiation Tool — Dan Cruz</title>
+<meta name="description" content="A free web tool to prep for your next negotiation. No signup walls, no email gate — just try it. From Dan Cruz, Negotiators On Demand.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0f;color:#e8e6e3;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+:root{--gold:#c9a84c;--gold-light:#e8d08a;--navy:#0f1423;--card:#141926;--text:#e8e6e3;--muted:#8a8a8a;--r:12px}
+
+/* ── header ── */
+header{background:rgba(15,20,35,.92);border-bottom:1px solid rgba(201,168,76,.2);padding:1rem 1.5rem;backdrop-filter:blur(12px)}
+.header-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:700;color:var(--gold);text-decoration:none;font-size:1rem}
+.logo span{color:var(--text)}
+nav{display:flex;gap:1.25rem;align-items:center}
+nav a{color:var(--muted);text-decoration:none;font-size:.85rem}
+nav a:hover{color:var(--gold)}
+
+/* ── hero ── */
+.hero{max-width:720px;margin:0 auto;padding:3rem 1.5rem 1.5rem;text-align:center}
+.hero .badge{display:inline-block;background:rgba(201,168,76,.12);color:var(--gold);font-size:.7rem;padding:.35rem .85rem;border-radius:99px;font-weight:600;letter-spacing:.05em;margin-bottom:1rem;text-transform:uppercase}
+.hero h1{font-size:clamp(1.75rem,4.5vw,2.75rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:1rem}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p{color:var(--muted);max-width:540px;margin:0 auto;font-size:1rem}
+
+/* ── tool card ── */
+.tool-wrap{max-width:720px;margin:1rem auto;padding:0 1.5rem;flex:1;width:100%}
+.tool{background:var(--card);border:1px solid rgba(201,168,76,.18);border-radius:var(--r);padding:2rem}
+.tool h2{color:var(--gold);font-size:1.1rem;margin-bottom:.25rem}
+.tool .sub{color:var(--muted);font-size:.85rem;margin-bottom:1.5rem}
+
+/* scenarios */
+.scenarios{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.5rem;margin-bottom:1.5rem}
+.scenario{background:#0a0a0f;border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:.75rem;text-align:center;cursor:pointer;font-size:.85rem;font-weight:600;color:var(--muted);transition:all .15s}
+.scenario:hover{border-color:rgba(201,168,76,.4);color:var(--text)}
+.scenario.active{background:rgba(201,168,76,.15);border-color:var(--gold);color:var(--gold)}
+
+/* inputs */
+.row{margin-bottom:1rem}
+.row label{display:block;font-size:.8rem;color:var(--muted);margin-bottom:.35rem;font-weight:600}
+.row input,.row textarea{width:100%;padding:.7rem .9rem;background:#0a0a0f;border:1px solid rgba(255,255,255,.08);border-radius:6px;color:var(--text);font-size:.95rem;font-family:inherit}
+.row input:focus,.row textarea:focus{outline:none;border-color:var(--gold)}
+.row textarea{min-height:80px;resize:vertical}
+.splits{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+@media(max-width:540px){.splits{grid-template-columns:1fr}}
+
+/* button */
+.btn{display:block;width:100%;padding:.9rem;background:var(--gold);color:#0a0a0f;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;margin-top:.5rem;transition:all .15s}
+.btn:hover{background:var(--gold-light);transform:translateY(-1px)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+/* output */
+.output{margin-top:1.5rem;padding:1.25rem;background:#0a0a0f;border-left:3px solid var(--gold);border-radius:6px;display:none}
+.output.show{display:block}
+.output h3{color:var(--gold);font-size:.95rem;margin-bottom:.5rem}
+.output p{color:var(--text);font-size:.9rem;white-space:pre-wrap}
+.output .tactic{color:var(--gold-light);font-weight:600}
+.output .phase{color:#58a6ff;font-weight:600;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;margin-top:1rem;margin-bottom:.25rem}
+
+/* ── email form ── */
+.email-section{max-width:720px;margin:2rem auto;padding:1rem 1.5rem;text-align:center}
+.email-section .pitch{color:var(--muted);font-size:.9rem;margin-bottom:1rem}
+.email-section .pitch strong{color:var(--text)}
+.email-form{display:flex;gap:.5rem;max-width:420px;margin:0 auto;flex-wrap:wrap}
+.email-form input{flex:1;min-width:200px;padding:.65rem .85rem;background:var(--card);border:1px solid rgba(255,255,255,.1);border-radius:6px;color:var(--text);font-size:.875rem}
+.email-form button{padding:.65rem 1.25rem;background:var(--gold);color:#0a0a0f;border:none;border-radius:6px;font-weight:600;font-size:.875rem;cursor:pointer}
+.email-form button:hover{background:var(--gold-light)}
+.email-msg{font-size:.8rem;margin-top:.5rem;color:#3fb950;min-height:1em}
+
+/* ── footer ── */
+footer{text-align:center;padding:1.5rem;color:var(--muted);font-size:.75rem;border-top:1px solid rgba(255,255,255,.04);margin-top:2rem}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<header>
+<div class="header-inner">
+  <a class="logo" href="/">negotiators<span>on</span>demand</a>
+  <nav>
+    <a href="/#products">Products</a>
+    <a href="/#coaching">Coaching</a>
+    <a href="/">Home</a>
+  </nav>
+</div>
+</header>
+
+<section class="hero">
+  <span class="badge">100% Free · No Login</span>
+  <h1>Prep your next negotiation in <em>60 seconds.</em></h1>
+  <p>Pick your scenario, drop in your situation, get the FBI-style play-by-play. Built from the same system Dan uses on real estate deals.</p>
+</section>
+
+<div class="tool-wrap">
+<div class="tool">
+  <h2>🎯 Negotiation Prep Tool</h2>
+  <p class="sub">Free. No email required to use. (We just ask at the end if you want the next one.)</p>
+
+  <div class="scenarios" id="scenarios">
+    <div class="scenario active" data-s="rent">Asking for a rent reduction</div>
+    <div class="scenario" data-s="price">Pushback on price</div>
+    <div class="scenario" data-s="raise">Asking for a raise</div>
+    <div class="scenario" data-s="exit">Telling a client no</div>
+    <div class="scenario" data-s="other">Something else</div>
+  </div>
+
+  <div class="row">
+    <label>What's the situation? (1-2 sentences)</label>
+    <textarea id="situation" placeholder="e.g. My landlord just raised rent 12% and I can't afford it. Lease ends in 2 months."></textarea>
+  </div>
+
+  <div class="splits">
+    <div class="row">
+      <label>What outcome do you want?</label>
+      <input id="goal" placeholder="e.g. Keep rent under $2000/mo or walk">
+    </div>
+    <div class="row">
+      <label>What's your walk-away?</label>
+      <input id="walkaway" placeholder="e.g. Move out, find a $1900 unit">
+    </div>
+  </div>
+
+  <button class="btn" id="prep-btn">Generate My Play-By-Play →</button>
+
+  <div class="output" id="output"></div>
+</div>
+</div>
+
+<div class="email-section">
+  <p class="pitch"><strong>Want the next one for free?</strong> One negotiation playbook a week. Real tactics, no fluff.</p>
+  <form class="email-form" id="ck-form" onsubmit="return submitCk(event)">
+    <input type="email" id="ck-email" placeholder="you@email.com" required>
+    <button type="submit">Send it to me</button>
+  </form>
+  <div class="email-msg" id="ck-msg"></div>
+</div>
+
+<footer>
+  <p>
+    <a href="/">negotiatorsondemand.com</a>
+    · <a href="mailto:negotiatorsondemand@gmail.com">Email Dan</a>
+  </p>
+  <p style="margin-top:.5rem">© 2026 Negotiators On Demand · Built by Dan Cruz</p>
+</footer>
+
+<script>
+// ponytail: tactics live inline, no LLM call, ships in 0ms vs 3-5s API round-trip
+const PLAYS = {
+  rent: {
+    label: "Rent Reduction",
+    phases: [
+      { name: "OPEN · Acknowledge & Lead with Empathy",
+        body: "Don't lead with the number. Lead with the fact that you want to stay.\n\n\"Hey [name] — I've been here [X years], I want to keep renting from you, and I need to talk about the renewal because the new number doesn't work for me.\"" },
+      { name: "INFORMATION · Ask Their Real Pressure",
+        body: "Landlords with vacancy problems will tell you. Ask one open question:\n\n\"Between keeping a reliable tenant versus the risk of vacancy, what makes more sense to you?\"\n\nIf they hesitate, they have vacancy fear. That's your leverage." },
+      { name: "ANCHOR · Make the First Offer",
+        body: "Anchor low but credible. Name your research: 3 comparable units in the building/area at $X.\n\n\"I'd like to propose $1,850 — that's in line with the two-bedrooms down the street at [property].\"" },
+      { name: "PACKAGE · Trade for Less Rent",
+        body: "If they won't move on price, trade: 18-month lease for a 12-month reduction. Or auto-pay for $50 off. Or referral to a friend.\n\n\"What if I sign for 18 months and set up auto-pay? Can we get to $1,950?\"" },
+      { name: "WALK-AWAY · Close with Conviction",
+        body: "If the gap is too big, say it clean:\n\n\"I can't go above $2,000. If that doesn't work, I'll need to start looking this week so I'm out before the new rate kicks in. I hope we can find a number.\"" },
+    ],
+  },
+  price: {
+    label: "Price Pushback",
+    phases: [
+      { name: "OPEN · Slow the Roll",
+        body: "Don't counter immediately. Mirror and label their position first.\n\n\"It sounds like the price is a real blocker for you right now.\"\n\nPause. Let them fill the silence." },
+      { name: "INFORMATION · Find the Real Objection",
+        body: "\"What's the number that WOULD work?\" Or: \"If we solved the price, is there anything else?\"\n\nOften price isn't the real objection. Get to the truth before you negotiate." },
+      { name: "VALUE · Reframe Before Discounting",
+        body: "Stack the value before you ever drop the price:\n\n\"At $X you're getting [feature 1], [feature 2], and [feature 3]. Where else does that exist for less?\"\n\nDiscounting without reframing = training them to push harder every time." },
+      { name: "TRADE · Never Discount Alone",
+        body: "\"I can do $Y if [faster payment / longer commitment / referral / case study].\"\n\nEvery dollar off should buy something back. Single concessions train them." },
+      { name: "CLOSE · The Two-Option",
+        body: "\"So — A: [$X with current terms] or B: [$Y with [trade]]. Which works?\"\n\nTwo real options, both yours. They pick. You win either way." },
+    ],
+  },
+  raise: {
+    label: "Asking for a Raise",
+    phases: [
+      { name: "OPEN · Book the Meeting, Don't Pitch in the Hallway",
+        body: "\"I'd like 30 minutes to talk about my role and where I'm headed. When works this week?\"\n\nRaises are scheduled, not ambushed." },
+      { name: "EVIDENCE · Bring Receipts, Not Vibes",
+        body: "Specific wins with dollar numbers. \"I closed [X deal] at [Y revenue]. I built [Z] that saved [time/money].\"\n\nIf you can't quantify it, you can't raise it." },
+      { name: "MARKET · Anchor With Range, Not Point",
+        body: "\"Based on [levels.fyi / Glassdoor / recruiter convos], this role in [city] is paying $X-$Y. I'm currently at $Z.\"\n\nRange = room. Point = ceiling." },
+      { name: "ASK · Say the Number Out Loud",
+        body: "\"I'd like to move to $X. Is that something you can make happen?\"\n\nSilence is your tool. Count to 7 in your head before they respond." },
+      { name: "WALK · Have the BATNA Ready",
+        body: "\"If we can't get there on salary, what else is on the table — bonus, equity, title, remote flexibility, conference budget?\"\n\nIf the answer is no on all of it, you have your answer too." },
+    ],
+  },
+  exit: {
+    label: "Telling a Client No",
+    phases: [
+      { name: "OPEN · Lead with the Yes",
+        body: "\"I want to keep working with you. And I need to be straight about this next part.\"\n\nPeople don't reject the no. They reject feeling dismissed." },
+      { name: "REASON · One Sentence, No Apology",
+        body: "\"[X] is outside what I can take on right now.\"\n\nDon't over-explain. Long explanations = opening for negotiation. Short = done." },
+      { name: "ALTERNATIVE · Offer the Real Help",
+        body: "\"What I CAN do is [X]. Or I know [person/company] who does exactly this — happy to intro you.\"\n\n'No' without an alternative feels like rejection. 'No' with one feels like a relationship." },
+      { name: "FUTURE · Leave the Door Specific",
+        body: "\"If [the situation changes / a smaller scope comes up / after [date]], I'd love to revisit. Until then, I wish you the best on it.\"" },
+    ],
+  },
+  other: {
+    label: "General Negotiation",
+    phases: [
+      { name: "OPEN · Slow the Room Down",
+        body: "Whoever speaks first after a number is named loses leverage.\n\nCount to 7. Use silence. \"Let me think about that for a second.\"" },
+      { name: "INFORMATION · Ask Before You Answer",
+        body: "\"Help me understand how you got there.\" / \"What would make this work for both of us?\"\n\nYou cannot solve for a number until you know what the other side actually needs." },
+      { name: "ANCHOR · Name a Specific Number",
+        body: "Vague: \"Can you do better?\"\nSpecific: \"Can you do $1,950 instead of $2,100?\"\n\nSpecific anchors beat vague ones 3:1 in study after study." },
+      { name: "PACKAGE · Never Negotiate One Variable",
+        body: "Price, timing, scope, payment terms, exclusivity. Move any of them, never just one.\n\n\"What if we did [scope] for [price] over [term]?\"" },
+      { name: "WALK · The Cleanest Power Move",
+        body: "\"I hear you. Based on what you've described, that doesn't work for me. I appreciate the time.\"\n\nThen stand up, shake hands, leave. The cleanest walk-aways create the best deals." },
+    ],
+  },
+};
+
+let current = "rent";
+document.querySelectorAll(".scenario").forEach(el => {
+  el.addEventListener("click", () => {
+    document.querySelectorAll(".scenario").forEach(s => s.classList.remove("active"));
+    el.classList.add("active");
+    current = el.dataset.s;
+  });
+});
+
+document.getElementById("prep-btn").addEventListener("click", () => {
+  const sit = document.getElementById("situation").value.trim();
+  const goal = document.getElementById("goal").value.trim();
+  const walk = document.getElementById("walkaway").value.trim();
+  const play = PLAYS[current];
+  const out = document.getElementById("output");
+
+  let summary = "";
+  if (sit || goal || walk) {
+    summary = `Your situation: <span class="tactic">${sit || "(not specified)"}</span>\n`;
+    if (goal) summary += `Your goal: <span class="tactic">${goal}</span>\n`;
+    if (walk) summary += `Your walk-away: <span class="tactic">${walk}</span>\n\n`;
+    summary += `Five-phase playbook for ${play.label}:`;
+  } else {
+    summary = `Five-phase playbook for ${play.label}:`;
+  }
+
+  let html = `<h3>${play.label} · Play-By-Play</h3>`;
+  html += `<p>${summary}</p>`;
+  play.phases.forEach((p, i) => {
+    html += `<div class="phase">Phase ${i + 1} · ${p.name}</div>`;
+    html += `<p>${p.body.replace(/\n/g, "<br>")}</p>`;
+  });
+
+  out.innerHTML = html;
+  out.classList.add("show");
+  out.scrollIntoView({ behavior: "smooth", block: "nearest" });
+});
+
+// ponytail: ConvertKit form uses direct API, skip embed.js (~80KB) — POST to forms.convertkit.com
+async function submitCk(e) {
+  e.preventDefault();
+  const email = document.getElementById("ck-email").value.trim();
+  const msg = document.getElementById("ck-msg");
+  if (!email) return false;
+
+  msg.textContent = "Sending...";
+  msg.style.color = "var(--muted)";
+
+  try {
+    // ponytail: direct ConvertKit v3 API call, form ID b9f24e182a
+    const r = await fetch("https://app.convertkit.com/forms/b9f24e182a/subscriptions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email_address: email })
+    });
+    if (r.ok) {
+      msg.textContent = "✓ You're in. Check your inbox.";
+      msg.style.color = "#3fb950";
+      document.getElementById("ck-email").value = "";
+    } else {
+      msg.textContent = "Couldn't subscribe. Email dancruzhomes@gmail.com";
+      msg.style.color = "#f85149";
+    }
+  } catch (err) {
+    msg.textContent = "Network error. Try again.";
+    msg.style.color = "#f85149";
+  }
+  return false;
+}
+</script>
+
+</body>
+</html>
