@@ -6,7 +6,7 @@
 <title>Negotiators On Demand — Dan Cruz</title>
 <meta name="description" content="Negotiation training, coaching, and scripts from Dan Cruz. Former Marine. Chicago real estate. FBI-style negotiation for real life.">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"Negotiators On Demand (NOD)","url":"https://negotiatorsondemand.com","description":"Negotiation coaching by Dan Cruz — tactical empathy, calibrated questions, Chicago adaptive reuse and minimalist homes.","founder":{"@type":"Person","name":"Dan Cruz","jobTitle":["Negotiation Coach","Chicago Real Estate Professional","Author"],"description":"Marine veteran, Chicago negotiation coach and real estate professional. Author of NOD Academy handbook. Specialist in adaptive-reuse conversion and large minimalist home builds.","url":"https://negotiatorsondemand.com/about","sameAs":["https://x.com/dancruz_nod","https://www.linkedin.com/in/dancruz","https://www.youtube.com/@negotiatorsondemand"],"address":{"@type":"PostalAddress","addressLocality":"Chicago","addressRegion":"IL","addressCountry":"US"}},"address":{"@type":"PostalAddress","addressLocality":"Chicago","addressRegion":"IL","addressCountry":"US"},"sameAs":["https://x.com/dancruz_nod","https://www.youtube.com/@negotiatorsondemand"]}
+{"@context":"https://schema.org","@type":"Organization","name":"Negotiators On Demand (NOD)","url":"https://negotiatorsondemand.com","description":"Negotiation coaching by Dan Cruz — tactical empathy, calibrated questions, Chicago adaptive reuse and minimalist homes.","founder":{"@type":"Person","name":"Dan Cruz","jobTitle":["Asset Manager","Negotiation Coach","Chicago Real Estate Professional","Author"],"description":"Marine veteran and Chicago-based asset manager. Builds and operates assets — Negotiators On Demand (NOD) being the first — alongside a real estate portfolio of ~50 active listings (mix of sales and rentals, 90% under $500K). Negotiation coach and author of the NOD Academy handbook; specialist in adaptive-reuse conversion and large minimalist home builds.","url":"https://negotiatorsondemand.com/about","sameAs":["https://x.com/dancruz_nod","https://www.linkedin.com/in/dancruz","https://www.youtube.com/@negotiatorsondemand"],"address":{"@type":"PostalAddress","addressLocality":"Chicago","addressRegion":"IL","addressCountry":"US"}},"address":{"@type":"PostalAddress","addressLocality":"Chicago","addressRegion":"IL","addressCountry":"US"},"sameAs":["https://x.com/dancruz_nod","https://www.youtube.com/@negotiatorsondemand"]}
 </script>
 <style>
 /* ── reset ── */
@@ -144,6 +144,20 @@ fetch('./products.json').then(r => r.json()).then(data => {
       ${p.link ? `<a href="${p.link}" target="_blank" rel="noopener">${p.link.includes('amazon') ? 'Order on Amazon →' : p.link.includes('gumroad') ? 'Buy on Gumroad →' : p.link.includes('calendly') ? 'Book Now →' : p.link.includes('dan8nod') ? 'Try the App →' : 'Learn More →'}</a>` : '<a href="#coaching" style="color:var(--muted);cursor:default">Coming Soon</a>'}`;
     grid.appendChild(card);
   });
+
+  // ponytail: Amazon book — credibility pill, not a product alternative
+  const cred = document.createElement('div');
+  cred.className = 'card';
+  cred.style.cssText = 'grid-column:1/-1;flex-direction:row;align-items:center;gap:14px;padding:14px 20px;background:rgba(255,153,0,0.06);border:1px solid rgba(255,153,0,0.2);';
+  cred.innerHTML = `
+    <div style="font-size:22px;flex-shrink:0;">📘</div>
+    <div style="flex:1;min-width:0;">
+      <div class="tag" style="color:#ff9900">Amazon KDP</div>
+      <h3 style="margin-top:2px;font-size:14px;">NOD Academy Book — by Dan Cruz</h3>
+      <p style="margin-top:2px;">Published negotiation manual. Print &amp; ebook on Amazon.</p>
+    </div>
+    <a href="https://www.amazon.com/dp/B0H6T2M995" target="_blank" rel="noopener" style="background:rgba(255,153,0,0.12);color:#ff9900;border:1px solid rgba(255,153,0,0.35);flex-shrink:0;">View on Amazon →</a>`;
+  grid.appendChild(cred);
 }).catch(e => {
   document.getElementById('product-grid').innerHTML = '<p style="color:var(--muted);grid-column:1/-1;text-align:center">Loading products…</p>';
 });
