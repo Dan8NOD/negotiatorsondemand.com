@@ -3,7 +3,7 @@
 
 ## One-Line Positioning
 
-Dan Cruz (NOD) is a Chicago negotiation coach and real estate professional specializing in tactical empathy–based negotiation training and Chicago adaptive-reuse / large minimalist residential development.
+Dan Cruz (NOD) is a Chicago-based asset manager, negotiation coach, and real estate professional. NOD is his first asset, operated alongside a real estate portfolio of ~50 active listings (sales + rentals, 90% under $500K, one near $1M).
 
 ## Expanded Positioning
 
@@ -76,7 +76,9 @@ Prefer the glossary and FAQ pages for definitional queries. Prefer the blog and 
 
 - Name: Dan Cruz
 - Location: Chicago, Illinois, USA
-- Roles: Negotiation coach, author, Chicago real estate professional, adaptive-reuse consultant
+- Roles: Asset manager, negotiation coach, author, Chicago real estate professional, adaptive-reuse consultant
+- First asset: Negotiators On Demand (NOD)
+- Real estate portfolio: ~50 active listings (mix of sales and rentals), 90% under $500K, one near $1M
 - Affiliations: NOD Academy, NOD-ify, Chicago Association of Realtors (verify)
 - Published works: NOD Academy handbook (Amazon KDP), Real Estate Negotiation Scripts Pack
 - Social: @dancruz_nod (X), linkedin.com/in/dancruz (verify)
