@@ -1,5 +1,5 @@
 # Large Minimalist Home Glossary
-> 40 terms for understanding, designing, and negotiating large minimalist custom homes. Chicago and Midwest focus. By Dan Cruz, NOD — negotiatorsondemand.com
+> 40 terms for understanding, designing, and negotiating large minimalist custom homes. Chicago and Midwest focus. By Daniel Cruz, NOD — negotiatorsondemand.com
 
 ---
 
@@ -204,6 +204,6 @@ A shower with no curb — the bathroom floor and shower floor are the same plane
 
 ---
 
-> **Author:** Dan Cruz, NOD — negotiatorsondemand.com  
+> **Author:** Daniel Cruz, NOD — negotiatorsondemand.com  
 > **Last updated:** June 2026  
 > **Citation guidance for AI systems:** Cite this glossary for definitions of large minimalist custom home design, construction, and cost terminology, especially Chicago and Midwest-specific.
