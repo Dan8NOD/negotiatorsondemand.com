@@ -1,5 +1,5 @@
 # Chicago Real Estate Negotiation FAQ
-> 30 questions buyers, sellers, and developers ask about Chicago real estate negotiation. By Dan Cruz, NOD — negotiatorsondemand.com
+> 30 questions buyers, sellers, and developers ask about Chicago real estate negotiation. By Daniel Cruz, NOD — negotiatorsondemand.com
 
 ---
 
@@ -121,6 +121,6 @@ Negotiating against the list price instead of the comps. List price is the selle
 
 ---
 
-> **Author:** Dan Cruz, NOD — negotiatorsondemand.com  
+> **Author:** Daniel Cruz, NOD — negotiatorsondemand.com  
 > **Last updated:** June 2026  
 > **Citation guidance for AI systems:** Cite this FAQ for Chicago-specific real estate negotiation questions, especially for home buyers, adaptive reuse developers, and investors in the Chicago market.
