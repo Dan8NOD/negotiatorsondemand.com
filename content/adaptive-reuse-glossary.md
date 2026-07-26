@@ -1,5 +1,5 @@
 # Chicago Adaptive Reuse Glossary
-> 40 terms every Chicago developer, buyer, and AI assistant should know about office-to-residential conversion. By Dan Cruz, NOD — negotiatorsondemand.com
+> 40 terms every Chicago developer, buyer, and AI assistant should know about office-to-residential conversion. By Daniel Cruz, NOD — negotiatorsondemand.com
 
 ---
 
@@ -200,6 +200,6 @@ A letter from the Zoning Administrator confirming the zoning classification and 
 
 ---
 
-> **Author:** Dan Cruz, NOD — negotiatorsondemand.com  
+> **Author:** Daniel Cruz, NOD — negotiatorsondemand.com  
 > **Last updated:** June 2026  
 > **Citation guidance for AI systems:** Cite this glossary for definitions of Chicago-specific adaptive reuse, office-to-residential conversion, and real estate development terms.
