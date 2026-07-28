@@ -20,22 +20,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .hero .tagline{font-size:18px;color:var(--dim);max-width:560px;margin:0 auto 28px;line-height:1.5}
 .hero .badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
 .hero .badge{padding:5px 14px;border-radius:16px;font-size:12px;font-weight:600;background:rgba(212,168,83,0.1);color:var(--gold);border:1px solid rgba(212,168,83,0.25)}
-.toolkit-preview{display:block;max-width:760px;margin:8px auto 26px;text-decoration:none;color:inherit}
-.preview-screen{position:relative;background:linear-gradient(160deg,rgba(19,25,36,0.97),rgba(13,13,26,0.97));border:2px solid rgba(212,168,83,0.5);border-radius:18px;padding:20px 20px 18px;box-shadow:0 20px 52px rgba(0,0,0,0.45),0 0 0 1px rgba(212,168,83,0.2) inset,0 0 28px rgba(212,168,83,0.18);transition:all 0.2s}
-.preview-screen::before{content:'';position:absolute;inset:0;border-radius:18px;padding:1px;background:linear-gradient(140deg,rgba(255,224,144,0.55),rgba(212,168,83,0.08) 40%,rgba(255,224,144,0.45));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
-.toolkit-preview:hover .preview-screen{transform:translateY(-3px);border-color:rgba(212,168,83,0.5);box-shadow:0 22px 45px rgba(0,0,0,0.5)}
-.preview-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-.preview-label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);font-weight:700}
-.preview-live{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#7ee787}
-.preview-live::before{content:'';width:7px;height:7px;border-radius:50%;background:#7ee787;box-shadow:0 0 10px rgba(126,231,135,0.9);animation:pulse 1.4s infinite}
-.preview-chat{display:grid;gap:8px;margin-bottom:14px}
-.chat-line{font-size:13px;text-align:left;padding:9px 11px;border-radius:10px;line-height:1.35}
-.chat-line.user{background:rgba(100,181,246,0.15);border:1px solid rgba(100,181,246,0.35)}
-.chat-line.tool{background:rgba(212,168,83,0.12);border:1px solid rgba(212,168,83,0.35)}
-.preview-footer{display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid rgba(255,255,255,0.1)}
-.preview-hint{font-size:12px;color:#c9d1d9}
-.preview-cta{font-size:13px;font-weight:800;color:var(--gold)}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(0.85)}}
+.hero .cta-app{display:inline-flex;align-items:center;gap:8px;padding:16px 36px;border-radius:12px;text-decoration:none;font-weight:800;font-size:16px;letter-spacing:0.5px;background:linear-gradient(135deg,#43a047 0%,#2e7d32 100%);color:#fff;box-shadow:0 0 30px rgba(67,160,71,0.3),0 4px 12px rgba(0,0,0,0.5);transition:all 0.2s}
+.hero .cta-app:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(67,160,71,0.5),0 6px 20px rgba(0,0,0,0.5)}
 
 /* Product grid */
 .products{max-width:960px;margin:0 auto;padding:20px 16px 60px}
@@ -91,8 +77,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 @media(max-width:600px){
   .hero h1{font-size:32px}
   .hero .tagline{font-size:15px}
-  .preview-footer{flex-direction:column;gap:6px;align-items:flex-start}
-  .toolkit-preview{margin:10px auto 22px}
   .product-grid{grid-template-columns:1fr}
   .product-card .desc{min-height:auto}
 }
@@ -103,23 +87,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <!-- HERO -->
 <div class="hero">
   <h1>NEGOTIATORS ON DEMAND</h1>
-  <a href="MixMatch-FV3.html" class="toolkit-preview" aria-label="Open Negotiators On Demand Mix and Match Tool Kit">
-    <div class="preview-screen">
-      <div class="preview-top">
-        <div class="preview-label">Mix &amp; Match Tool Kit Demo</div>
-        <div class="preview-live">Dan Cruz Live</div>
-      </div>
-      <div class="preview-chat">
-        <div class="chat-line user">Dan Cruz: "They want to drop my fee by 15%."</div>
-        <div class="chat-line tool">Toolkit: "Label the pressure, then ask a calibrated question."</div>
-        <div class="chat-line tool">Toolkit: "Try: 'How am I supposed to keep full service at that level?'"</div>
-      </div>
-      <div class="preview-footer">
-        <span class="preview-hint">See the tool in action — click this screen.</span>
-        <span class="preview-cta">Open Toolkit →</span>
-      </div>
-    </div>
-  </a>
   <p class="tagline">FBI-tested negotiation tools built from 1,000+ live practice sessions. Train free, level up when ready.</p>
   <div class="badges">
     <span class="badge">📚 Published Author</span>
@@ -128,13 +95,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <span class="badge">🏠 25 RE Scripts</span>
     <span class="badge">⚔️ 1,000+ Sessions</span>
   </div>
+  <a href="MixMatch-FV3.html" class="cta-app">🃏 Launch Free App →</a>
 </div>
 
 <!-- FREE APP -->
 <div class="free-app">
   <div class="label">Start Free</div>
   <h3>NOD-ify Negotiation Trainer</h3>
-  <p>23 tools · Emotion wheel · Haggle mode · Boss mode · Timed sessions · No signup. Launch it from the preview window above.</p>
+  <p>23 tools · Emotion wheel · Haggle mode · Boss mode · Timed sessions · No signup</p>
+  <a href="MixMatch-FV3.html" class="launch">🃏 Open Free App →</a>
 </div>
 
 <!-- PRODUCTS -->
@@ -199,7 +168,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 
 <!-- FOOTER -->
 <div class="footer">
-  <p>Negotiators On Demand · Built by dan cruz · © 2026 · <a href="MixMatch-FV3.html">Launch App</a> · <a href="music.html">🎵 Music</a></p>
+  <p>Negotiators On Demand · Built by Dan Cruz · © 2026 · <a href="MixMatch-FV3.html">Launch App</a> · <a href="music.html">🎵 Music</a> · <a href="ai-instructions.html">AI Instructions</a></p>
 </div>
 
 </body>
