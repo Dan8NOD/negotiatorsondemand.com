@@ -3,16 +3,156 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="nod-coin.png">
-<title>Negotiators On Demand — Negotiation Training & Tools</title>
+<link rel="icon" href="/nod-coin.png">
+<title>Negotiators On Demand — Free Negotiation Practice, Scripts & Training</title>
 <meta name="description" content="FBI-tested negotiation tools, scripts, and training. Built from 1,000+ live practice sessions. Free app, $5 Field Guide, $49 Manual, $99 RE Scripts.">
+<link rel="canonical" href="https://negotiatorsondemand.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Negotiators On Demand">
+<meta property="og:title" content="Negotiators On Demand — practice negotiation free">
+<meta property="og:description" content="31 negotiation tools, 21 free. Practice in the browser, no signup. Then scripts, the manual, and coaching when you need them.">
+<meta property="og:url" content="https://negotiatorsondemand.com/">
+<meta property="og:image" content="https://negotiatorsondemand.com/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A dark boardroom table at dusk, two chairs facing each other over a closed folder">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Negotiators On Demand — practice negotiation free">
+<meta name="twitter:description" content="31 negotiation tools, 21 free. Practice in the browser, no signup. Then scripts, the manual, and coaching when you need them.">
+<meta name="twitter:image" content="https://negotiatorsondemand.com/og-card.jpg">
+<link rel="stylesheet" href="/assets/nod-shared.css">
+<link rel="preload" as="image" href="/assets/hero-boardroom-960.webp" type="image/webp" media="(max-width:700px)">
+<link rel="preload" as="image" href="/assets/hero-boardroom.webp" type="image/webp" media="(min-width:701px)">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://negotiatorsondemand.com/#org",
+      "name": "Negotiators On Demand",
+      "alternateName": "NOD",
+      "url": "https://negotiatorsondemand.com/",
+      "logo": "https://negotiatorsondemand.com/nod-coin.png",
+      "founder": {
+        "@id": "https://negotiatorcruz.com/#dan"
+      },
+      "email": "negotiatorsondemand@gmail.com",
+      "sameAs": [
+        "https://www.tiktok.com/@negotiatorsondemand",
+        "https://negotiatorcruz.com"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://negotiatorcruz.com/#dan",
+      "name": "Dan Cruz",
+      "alternateName": "Daniel Cruz",
+      "jobTitle": "Negotiation Trainer",
+      "description": "Marine veteran, Chicago real estate professional, and negotiation trainer. Author of the NOD Training Manual. 1,000+ live practice sessions.",
+      "url": "https://negotiatorcruz.com/about",
+      "sameAs": [
+        "https://negotiatorcruz.com",
+        "https://www.tiktok.com/@negotiatorsondemand",
+        "https://www.youtube.com/@Negotiators",
+        "https://dancruzhomes.com"
+      ],
+      "knowsAbout": [
+        "Negotiation",
+        "Tactical empathy",
+        "Real estate negotiation"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://negotiatorsondemand.com/#site",
+      "url": "https://negotiatorsondemand.com/",
+      "name": "Negotiators On Demand",
+      "publisher": {
+        "@id": "https://negotiatorsondemand.com/#org"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "NOD Field Guide",
+      "description": "25-page quick reference. Core tools, real scripts, 30-day drill.",
+      "sku": "field-guide",
+      "brand": {
+        "@id": "https://negotiatorsondemand.com/#org"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "5",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://negotiatorsondemand.com/#products",
+        "seller": {
+          "@id": "https://negotiatorsondemand.com/#org"
+        }
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "NOD Field Manual",
+      "description": "33 chapters. Every tool, every script, every scenario.",
+      "sku": "field-manual",
+      "brand": {
+        "@id": "https://negotiatorsondemand.com/#org"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "49",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://negotiatorsondemand.com/#products",
+        "seller": {
+          "@id": "https://negotiatorsondemand.com/#org"
+        }
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "RE Scripts Pack",
+      "description": "25 word-for-word real estate negotiation scripts for commissions, listings, offers, price cuts, and objections.",
+      "sku": "re-scripts",
+      "brand": {
+        "@id": "https://negotiatorsondemand.com/#org"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "99",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://negotiatorsondemand.com/#products",
+        "seller": {
+          "@id": "https://negotiatorsondemand.com/#org"
+        }
+      }
+    },
+    {
+      "@type": "Service",
+      "name": "1-on-1 Negotiation Coaching",
+      "serviceType": "Negotiation coaching",
+      "provider": {
+        "@id": "https://negotiatorcruz.com/#dan"
+      },
+      "url": "https://negotiatorsondemand.com/#coaching",
+      "description": "Private negotiation coaching for personal deals — salary, rent, a purchase. For teams, see negotiatorcruz.com."
+    }
+  ]
+}
+</script>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--gold:#d4a853;--bg:#0d0d1a;--card:#161b22;--text:#e6edf3;--dim:#8b949e;--blue:#64b5f6;--purple:#ba68c8}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
 
 /* Hero */
-.hero{text-align:center;padding:80px 20px 60px;position:relative;background:url('./assets/hero-boardroom.png') center/cover no-repeat;background-color:var(--bg)}
+/* WebP first (57 KB) with a JPEG fallback (148 KB); was a 2.7 MB PNG. overflow:hidden
+   keeps the 600px glow in ::after from widening the page on phones. */
+.hero{text-align:center;padding:80px 20px 60px;position:relative;overflow:hidden;background:var(--bg) url('/assets/hero-boardroom.jpg') center/cover no-repeat;background-image:image-set(url('/assets/hero-boardroom.webp') type('image/webp'),url('/assets/hero-boardroom.jpg') type('image/jpeg'))}
+@media(max-width:700px){.hero{background-image:image-set(url('/assets/hero-boardroom-960.webp') type('image/webp'),url('/assets/hero-boardroom.jpg') type('image/jpeg'))}}
 .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,26,0.45) 0%,rgba(13,13,26,0.75) 100%);pointer-events:none}
 .hero::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(212,168,83,0.08) 0%,transparent 70%);pointer-events:none}
 .hero>*{position:relative;z-index:1}
@@ -53,14 +193,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .card-scripts{border-color:rgba(186,104,200,0.2)}
 .card-scripts .tag{color:var(--purple)}
 .card-scripts .price{color:var(--purple)}
-.card-scripts .buy{background:rgba(186,104,200,0.15);color:var(--purple);border:1px solid rgba(186,104,200,0.4)}
+.card-scripts .buy{background:rgba(186,104,200,0.15);color:#d9a6e3;border:1px solid rgba(186,104,200,0.4)}
 .card-scripts .buy:hover{background:var(--purple);color:#fff}
 .card-scripts:hover{border-color:rgba(186,104,200,0.4)}
 
 /* Free app section */
 .free-app{text-align:center;padding:40px 20px 60px}
 .free-app .label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
-.free-app h3{font-size:24px;font-weight:800;color:#fff;margin-bottom:8px}
+.free-app h2,.free-app h3{font-size:24px;font-weight:800;color:#fff;margin-bottom:8px}
 .free-app p{color:var(--dim);font-size:14px;margin-bottom:20px}
 .free-app .launch{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:12px;text-decoration:none;font-weight:700;font-size:15px;background:linear-gradient(135deg,#1e5a3a 0%,#14452c 100%);color:#fff;border:1px solid rgba(67,160,71,0.4);box-shadow:0 0 20px rgba(67,160,71,0.2);transition:all 0.2s}
 .free-app .launch:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(67,160,71,0.4)}
@@ -72,7 +212,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 
 /* Footer */
 .footer{text-align:center;padding:30px 20px;border-top:1px solid rgba(255,255,255,0.06);color:var(--dim);font-size:12px}
-.footer a{color:var(--gold);text-decoration:none}
+.footer a{color:var(--gold);text-decoration:underline;text-underline-offset:3px}
+.free-app .schedule{color:var(--text);font-size:14px;margin:-8px 0 20px}
 
 @media(max-width:600px){
   .hero h1{font-size:32px}
@@ -83,6 +224,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 </style>
 </head>
 <body>
+<div class="nod-teams-bar"><span>Buying for a sales team or a company?</span> <a href="https://negotiatorcruz.com/?utm_source=negotiatorsondemand&amp;utm_medium=teams_bar&amp;utm_campaign=for_teams">For teams →</a></div>
 
 <!-- HERO -->
 <div class="hero">
@@ -90,7 +232,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <p class="tagline">FBI-tested negotiation tools built from 1,000+ live practice sessions. Train free, level up when ready.</p>
   <div class="badges">
     <span class="badge">📚 Published Author</span>
-    <span class="badge">🧠 35+ Negotiation Tools</span>
+    <span class="badge">🧠 31 Negotiation Tools</span>
     <span class="badge">📜 33 Chapters</span>
     <span class="badge">🏠 25 RE Scripts</span>
     <span class="badge">⚔️ 1,000+ Sessions</span>
@@ -101,13 +243,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <!-- FREE APP -->
 <div class="free-app">
   <div class="label">Start Free</div>
-  <h3>NOD-ify Negotiation Trainer</h3>
-  <p>23 tools · Emotion wheel · Haggle mode · Boss mode · Timed sessions · No signup</p>
+  <h2>NOD-ify Negotiation Trainer</h2>
+  <p>31 tools, 21 free · 5 modes: Haggle, Friend, Boss, Mediator, Warrior · Timed sessions · No signup</p>
+  <!-- TODO(Dan Cruz): add the Zoom join link (or the page that has it) for the free live practice below. -->
+  <p class="schedule">Free live practice on Zoom: Wednesdays 7 PM CT · Saturdays 9:30–11:30 AM CT</p>
   <a href="MixMatch-FV3.html" class="launch">🃏 Open Free App →</a>
 </div>
 
 <!-- PRODUCTS -->
-<div class="products">
+<div class="products" id="products">
   <h2>📚 Level Up Your Negotiation</h2>
   <div class="product-grid">
 
@@ -130,7 +274,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <a href="https://dancruzpro.gumroad.com/l/xbbrxc" target="_blank" rel="noopener" class="buy">Get the Manual</a>
     </div>
 
-    <!-- Amazon Book -->
+    <!-- Amazon Book
+         TODO(Dan Cruz): confirm which book ASIN B0H6T2M995 is. The canonical book is the
+         "NOD Training Manual" ($10 Kindle / $50 print); this card calls it "NOD Academy Book"
+         at $9.99. If this ASIN is your separate dream-journal negotiation book, it needs its own
+         title here. Name and price left as found — your call. -->
     <div class="product-card card-guide" style="border-color:rgba(255,153,0,0.25)">
       <div class="tag" style="color:#ff9900">Amazon KDP</div>
       <div class="name">📘 NOD Academy Book</div>
@@ -151,25 +299,41 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   </div>
 </div>
 
-<!-- COACHING -->
-<div class="free-app">
+<!-- COACHING
+     TODO(Dan Cruz): this says $250/hr. Your canonical rate for this offer is $500/hr, and
+     products.html says $200/hr. Price left as found — change it once you confirm. -->
+<div class="free-app" id="coaching">
   <div class="label">Premium</div>
-  <h3>📅 1-on-1 Coaching — $250/hr</h3>
+  <h2>📅 1-on-1 Coaching — $250/hr</h2>
   <p>Private negotiation coaching. Salary, deals, conflict — we break it down live.</p>
   <a href="https://calendly.com/negotiatorsondemand/virtualcoffeewithdan" target="_blank" rel="noopener" class="launch" style="background:linear-gradient(135deg,#c8922a 0%,#f0c060 50%,#d4a853 100%);color:#0d0d1a;border-color:rgba(212,168,83,0.5);box-shadow:0 0 20px rgba(212,168,83,0.3);">📅 Book a Session</a>
+  <p class="nod-coaching-note">This is personal coaching: your salary, your lease, your car. Coaching on a company deal is the $1,500 Negotiator Hour, and team training starts at a one-day intensive. Both are at negotiatorcruz.com. <a href="https://negotiatorcruz.com/?utm_source=negotiatorsondemand&amp;utm_medium=coaching&amp;utm_campaign=for_teams#investment">For teams →</a></p>
 </div>
 
-<!-- CONVERTKIT LEAD CAPTURE -->
-<div class="lead">
-  <h3>⚔️ Get Negotiation Tips</h3>
-  <p>Free negotiation insights straight to your inbox. No spam. Unsubscribe anytime.</p>
-  <script async data-uid="b9f24e182a" src="https://tremendous-innovator-7837.kit.com/b9f24e182a/index.js"></script>
-</div>
+<!-- LEAD CAPTURE: 50-Label Cheat Sheet.
+     TODO(Dan Cruz): connect your email provider — see the header of /assets/signup.js.
+     Until then the form opens the visitor's mail app addressed to you. -->
+<section class="nod-signup" id="cheat-sheet" aria-labelledby="cs-h-home">
+  <div class="eyebrow">Free download</div>
+  <h2 id="cs-h-home">The 50-Label Cheat Sheet</h2>
+  <p>Fifty labels that get people talking, on one page. Same sheet teams get laminated at a training day. One email with the PDF, then the occasional drill. Unsubscribe whenever.</p>
+  <form class="nod-signup-form" data-endpoint="" data-source="home" novalidate>
+    <label for="cs-email-home">Email address</label>
+    <input id="cs-email-home" type="email" name="email" autocomplete="email" required placeholder="you@email.com">
+    <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <button type="submit">Send me the sheet</button>
+    <p class="nod-signup-msg" role="status" aria-live="polite"></p>
+  </form>
+  <p class="fine">The practice tool stays free and open. It never asks for an email.</p>
+</section>
+
 
 <!-- FOOTER -->
 <div class="footer">
-  <p>Negotiators On Demand · Built by Dan Cruz · © 2026 · <a href="MixMatch-FV3.html">Launch App</a> · <a href="music.html">🎵 Music</a> · <a href="ai-instructions.html">AI Instructions</a></p>
+  <p>Negotiators On Demand · Built by Dan Cruz · © 2026 · <a href="MixMatch-FV3.html">Launch App</a> · <a href="/hello.html">Prep Tool</a> · <a href="/scripts.html">Free Scripts</a> · <a href="/glossary.html">Glossary</a> · <a href="music.html">🎵 Music</a> · <a href="ai-instructions.html">AI Instructions</a></p>
+  <p style="margin-top:8px"><a href="https://negotiatorcruz.com/?utm_source=negotiatorsondemand&amp;utm_medium=footer&amp;utm_campaign=for_teams">For teams →</a> Corporate negotiation training at negotiatorcruz.com</p>
 </div>
 
+<script src="/assets/signup.js" defer></script>
 </body>
 </html>

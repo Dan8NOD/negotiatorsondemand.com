@@ -3,8 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Free Negotiation Tool — Daniel Cruz</title>
+<title>Free Negotiation Prep Tool — Negotiators On Demand</title>
 <meta name="description" content="A free web tool to prep for your next negotiation. No signup walls, no email gate — just try it. From Daniel Cruz, Negotiators On Demand.">
+<link rel="canonical" href="https://negotiatorsondemand.com/hello.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Negotiators On Demand">
+<meta property="og:title" content="Prep your next negotiation in 60 seconds">
+<meta property="og:description" content="Pick a scenario, describe the situation, get a five-phase play-by-play. Free, no login.">
+<meta property="og:url" content="https://negotiatorsondemand.com/hello.html">
+<meta property="og:image" content="https://negotiatorsondemand.com/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A dark boardroom table at dusk, two chairs facing each other over a closed folder">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Prep your next negotiation in 60 seconds">
+<meta name="twitter:description" content="Pick a scenario, describe the situation, get a five-phase play-by-play. Free, no login.">
+<meta name="twitter:image" content="https://negotiatorsondemand.com/og-card.jpg">
+<link rel="stylesheet" href="/assets/nod-shared.css">
+
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -16,7 +32,8 @@ header{background:rgba(15,20,35,.92);border-bottom:1px solid rgba(201,168,76,.2)
 .header-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
 .logo{font-weight:700;color:var(--gold);text-decoration:none;font-size:1rem}
 .logo span{color:var(--text)}
-nav{display:flex;gap:1.25rem;align-items:center}
+nav{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;align-items:center;justify-content:flex-end}
+.header-inner{gap:1rem}
 nav a{color:var(--muted);text-decoration:none;font-size:.85rem}
 nav a:hover{color:var(--gold)}
 
@@ -35,7 +52,7 @@ nav a:hover{color:var(--gold)}
 
 /* scenarios */
 .scenarios{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.5rem;margin-bottom:1.5rem}
-.scenario{background:#0a0a0f;border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:.75rem;text-align:center;cursor:pointer;font-size:.85rem;font-weight:600;color:var(--muted);transition:all .15s}
+.scenario{font:inherit;font-size:.85rem;font-weight:600;width:100%;background:#0a0a0f;border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:.75rem;text-align:center;cursor:pointer;font-size:.85rem;font-weight:600;color:var(--muted);transition:all .15s}
 .scenario:hover{border-color:rgba(201,168,76,.4);color:var(--text)}
 .scenario.active{background:rgba(201,168,76,.15);border-color:var(--gold);color:var(--gold)}
 
@@ -78,6 +95,7 @@ footer a:hover{color:var(--gold)}
 </style>
 </head>
 <body>
+<div class="nod-teams-bar"><span>Buying for a sales team or a company?</span> <a href="https://negotiatorcruz.com/?utm_source=negotiatorsondemand&amp;utm_medium=teams_bar&amp;utm_campaign=for_teams">For teams →</a></div>
 
 <header>
 <div class="header-inner">
@@ -101,26 +119,26 @@ footer a:hover{color:var(--gold)}
   <h2>🎯 Negotiation Prep Tool</h2>
   <p class="sub">Free. No email required to use. (We just ask at the end if you want the next one.)</p>
 
-  <div class="scenarios" id="scenarios">
-    <div class="scenario active" data-s="rent">Asking for a rent reduction</div>
-    <div class="scenario" data-s="price">Pushback on price</div>
-    <div class="scenario" data-s="raise">Asking for a raise</div>
-    <div class="scenario" data-s="exit">Telling a client no</div>
-    <div class="scenario" data-s="other">Something else</div>
+  <div class="scenarios" id="scenarios" role="group" aria-label="Scenario">
+    <button type="button" class="scenario active" data-s="rent" aria-pressed="true">Asking for a rent reduction</button>
+    <button type="button" class="scenario" data-s="price" aria-pressed="false">Pushback on price</button>
+    <button type="button" class="scenario" data-s="raise" aria-pressed="false">Asking for a raise</button>
+    <button type="button" class="scenario" data-s="exit" aria-pressed="false">Telling a client no</button>
+    <button type="button" class="scenario" data-s="other" aria-pressed="false">Something else</button>
   </div>
 
   <div class="row">
-    <label>What's the situation? (1-2 sentences)</label>
+    <label for="situation">What's the situation? (1-2 sentences)</label>
     <textarea id="situation" placeholder="e.g. My landlord just raised rent 12% and I can't afford it. Lease ends in 2 months."></textarea>
   </div>
 
   <div class="splits">
     <div class="row">
-      <label>What outcome do you want?</label>
+      <label for="goal">What outcome do you want?</label>
       <input id="goal" placeholder="e.g. Keep rent under $2000/mo or walk">
     </div>
     <div class="row">
-      <label>What's your walk-away?</label>
+      <label for="walkaway">What's your walk-away?</label>
       <input id="walkaway" placeholder="e.g. Move out, find a $1900 unit">
     </div>
   </div>
@@ -134,7 +152,8 @@ footer a:hover{color:var(--gold)}
 <div class="email-section">
   <p class="pitch"><strong>Want the next one for free?</strong> One negotiation playbook a week. Real tactics, no fluff.</p>
   <form class="email-form" id="ck-form" onsubmit="return submitCk(event)">
-    <input type="email" id="ck-email" placeholder="you@email.com" required>
+    <label for="ck-email" class="sr-only">Email address</label>
+    <input type="email" id="ck-email" autocomplete="email" placeholder="you@email.com" required>
     <button type="submit">Send it to me</button>
   </form>
   <div class="email-msg" id="ck-msg"></div>
@@ -144,6 +163,7 @@ footer a:hover{color:var(--gold)}
   <p>
     <a href="/">negotiatorsondemand.com</a>
     · <a href="mailto:negotiatorsondemand@gmail.com">Email Daniel Cruz</a>
+    · <a href="https://negotiatorcruz.com/?utm_source=negotiatorsondemand&amp;utm_medium=footer&amp;utm_campaign=for_teams">For teams →</a>
   </p>
   <p style="margin-top:.5rem">© 2026 Negotiators On Demand · Built by Daniel Cruz</p>
 </footer>
@@ -226,19 +246,22 @@ const PLAYS = {
   },
 };
 
+const esc = (s) => s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+
 let current = "rent";
 document.querySelectorAll(".scenario").forEach(el => {
   el.addEventListener("click", () => {
-    document.querySelectorAll(".scenario").forEach(s => s.classList.remove("active"));
+    document.querySelectorAll(".scenario").forEach(s => { s.classList.remove("active"); s.setAttribute("aria-pressed", "false"); });
     el.classList.add("active");
+    el.setAttribute("aria-pressed", "true");
     current = el.dataset.s;
   });
 });
 
 document.getElementById("prep-btn").addEventListener("click", () => {
-  const sit = document.getElementById("situation").value.trim();
-  const goal = document.getElementById("goal").value.trim();
-  const walk = document.getElementById("walkaway").value.trim();
+  const sit = esc(document.getElementById("situation").value.trim());
+  const goal = esc(document.getElementById("goal").value.trim());
+  const walk = esc(document.getElementById("walkaway").value.trim());
   const play = PLAYS[current];
   const out = document.getElementById("output");
 
@@ -286,7 +309,7 @@ async function submitCk(e) {
       msg.style.color = "#3fb950";
       document.getElementById("ck-email").value = "";
     } else {
-      msg.textContent = "Couldn't subscribe. Email dancruzhomes@gmail.com";
+      msg.textContent = "Couldn't subscribe. Email negotiatorsondemand@gmail.com";
       msg.style.color = "#f85149";
     }
   } catch (err) {
