@@ -1,0 +1,37 @@
+/* Shared by every page on negotiatorsondemand.com: the "For teams" bar that
+   routes corporate buyers to negotiatorcruz.com, and the cheat-sheet signup.
+   Each page keeps its own inline styles; this file only carries what has to
+   look the same everywhere. */
+
+.nod-teams-bar{display:flex;flex-wrap:wrap;gap:.25rem .6rem;justify-content:center;align-items:center;
+  padding:.55rem 1rem;background:#07070d;border-bottom:1px solid rgba(201,168,76,.22);
+  font:600 13px/1.4 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#b9b4ab;text-align:center}
+.nod-teams-bar a{color:#e8d08a;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.nod-teams-bar a:hover,.nod-teams-bar a:focus-visible{color:#fff}
+
+.nod-signup{max-width:560px;margin:0 auto;padding:44px 20px 56px;text-align:center;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+.nod-signup .eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#d4a853;font-weight:700;margin-bottom:8px}
+.nod-signup h2{font-size:22px;font-weight:800;color:#fff;margin:0 0 8px;letter-spacing:-.01em}
+.nod-signup p{color:#a8b1bb;font-size:14px;line-height:1.55;margin:0 0 18px}
+.nod-signup-form{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.nod-signup-form label{flex-basis:100%;text-align:center;font-size:12px;font-weight:600;color:#c9c4bb;max-width:420px;margin:0 auto}
+.nod-signup-form input[type=email]{flex:1 1 220px;max-width:280px;min-height:46px;padding:0 14px;border-radius:10px;
+  border:1px solid rgba(255,255,255,.18);background:#11151d;color:#fff;font-size:16px}
+.nod-signup-form input[type=email]:focus{outline:2px solid #d4a853;outline-offset:2px}
+.nod-signup-form button{min-height:46px;padding:0 20px;border:0;border-radius:10px;cursor:pointer;
+  background:#d4a853;color:#0d0d1a;font-weight:800;font-size:15px}
+.nod-signup-form button:hover{background:#f0c060}
+.nod-signup-form button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.nod-signup-form button[disabled]{opacity:.6;cursor:wait}
+.nod-signup-form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.nod-signup-msg{flex-basis:100%;min-height:1.4em;margin:6px 0 0;font-size:13px;color:#a8b1bb}
+.nod-signup-msg.ok{color:#5fd38a}
+.nod-signup-msg.err{color:#ff8a80}
+.nod-signup-msg a{color:#e8d08a}
+.nod-signup .fine{font-size:12px;color:#8f98a3;margin:14px 0 0}
+
+.nod-coaching-note{max-width:520px;margin:14px auto 0;font-size:13px;line-height:1.55;color:#a8b1bb}
+.nod-coaching-note a{color:#e8d08a;text-decoration:underline;text-underline-offset:3px}
+
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}

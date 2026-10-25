@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Admin — NOD Products</title>
+<meta name="robots" content="noindex, nofollow">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#0a0a0f;color:#e8e6e3;line-height:1.6;padding:1.5rem}
@@ -43,7 +44,7 @@ h1{color:#c9a84c;font-size:1.25rem}
 <div class="copy-json">
   <details>
     <summary style="cursor:pointer;color:#c9a84c;font-weight:600;font-size:.85rem;margin-bottom:.5rem">📋 Show JSON (copy/paste alternative)</summary>
-    <textarea id="json-out" readonly></textarea>
+    <textarea id="json-out" readonly aria-label="products.json contents"></textarea>
   </details>
 </div>
 
@@ -71,7 +72,7 @@ function render() {
         <a class="link" href="${p.link || '#'}" target="_blank">${p.link || '— no link'}</a>
       </div>
       <span class="price">$${p.price}${p.recurring ? '/mo' : ''}</span>
-      <select class="status ${p.status}" data-i="${i}" onchange="setStatus(this, ${i})">
+      <select class="status ${p.status}" data-i="${i}" aria-label="Status for ${p.name}" onchange="setStatus(this, ${i})">
         <option value="done" ${p.status === 'done' ? 'selected' : ''}>✅ done</option>
         <option value="wip" ${p.status === 'wip' ? 'selected' : ''}>🔧 wip</option>
         <option value="todo" ${p.status === 'todo' ? 'selected' : ''}>📋 todo</option>
