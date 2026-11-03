@@ -2,7 +2,7 @@
  *
  * TODO(Dan Cruz): connect an email service. Until then every form falls back
  * to opening the visitor's mail app with a pre-filled request to
- * negotiatorsondemand@gmail.com, so no lead is lost — but you send the PDF
+ * dan@fatcatcruz.com, so no lead is lost — but you send the PDF
  * by hand.
  *
  * To connect a provider, set the attributes on each <form class="nod-signup-form">
@@ -25,7 +25,7 @@
  */
 (function () {
   'use strict';
-  var FALLBACK_TO = 'negotiatorsondemand@gmail.com';
+  var FALLBACK_TO = 'dan@fatcatcruz.com';
   var cfg = window.NOD_SIGNUP || {};
 
   function mailtoHref(email, source) {
